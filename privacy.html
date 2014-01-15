@@ -1,0 +1,369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+
+<link href='http://fonts.googleapis.com/css?family=Signika+Negative:600,700|Crete+Round|Alegreya' rel='stylesheet' type='text/css'>
+
+<title>One Busy Monkey</title>
+
+<style type="text/css">
+* { 
+	margin: 0; 
+}
+
+html,
+body {
+	background-color:#202020;
+	background-image:url('assets/Paper_background.jpg');
+	background-repeat:repeat;
+	background-attachment:fixed;
+	
+	height:100%;
+
+	color:#f0e0e0;
+	font-family:'Crete Round', 'Georgia', serif;
+	font-size:24px;
+}
+
+h1 {
+	font-size:60px;
+	letter-spacing:1px;
+	text-shadow: 2px 2px #406090;
+	padding:8px 0px 0px;
+}
+
+h2 {
+	font-size:30px;
+	letter-spacing:1px;
+	text-shadow:1px 1px #406090;
+}
+
+h3 {
+	margin: 8px 0px 8px;
+	font-style: oblique;
+}
+
+#wrapper {
+	min-height:100%;
+	height:auto !important;
+	height:100%;
+	margin:0 auto -50px; /* -50px is the size of the footer+top margin */
+}
+
+#header {
+	color:#28b0ff;
+	font-family: 'Signika Negative', 'Tahoma', 'Geneva', sans-serif;
+	height:120px;
+}
+
+#content {
+	margin:4px;
+	padding:20px 16px;
+	border:inset 2px;
+	border-radius:5px;
+	box-shadow:0 2px 4px rgba(0,0,0,.2);
+	
+	background: -webkit-linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.25));
+}
+
+#description {
+	position:relative;
+}
+
+#links {
+	position:absolute;
+	right:6px;
+	top:21px;
+}
+
+#detail {
+	font-size:18px;
+	font-family: 'Alegreya', 'Georgia', serif;
+}
+
+#detail p {
+	margin-top:10px;
+}
+
+#footer,
+#spacer {
+	margin-left:6px;
+	margin-right:4px;
+	margin-top:10px;
+  height:40px;   
+
+	font-family: 'Signika Negative', 'Tahoma', 'Geneva', sans-serif;
+	font-size: 18px;
+	color:#28b0ff;
+}
+
+#detail_spacer {
+	clear:left;
+}
+
+#s_email_contact {
+}
+
+a:link {text-decoration: none; color:#f0e0e0}
+a:visited {text-decoration: none; color:#f0e0e0}
+a:active {text-decoration: none; color:#f0e0e0}
+a:hover {text-decoration: none; color:#f0e0e0}
+
+/* button code follows: */
+
+.button {
+	border:inset 2px;
+	box-shadow:0 1px 2px rgba(0,0,0,.2);
+	border-radius:24px;
+	padding:6px 20px 6px 20px;
+	
+	background:-ie-linear-gradient(#000000, #666666);
+	background:-moz-linear-gradient(#000000, #666666);
+	background:-o-linear-gradient(#000000, #666666);
+	background:-webkit-linear-gradient(#000000, #666666);
+	background:linear-gradient(#000000, #666666);	
+
+	background-size:1px 100px;
+	background-position:0px -25px;
+
+	-ie-transition: background 0.3s linear;
+	-moz-transition: background 0.3s linear;
+	-o-transition: background 0.3s linear;
+	-webkit-transition: background 0.3s linear;
+	transition: background 0.3s linear;
+}
+
+.button span {
+	color:#28b0ff;
+}
+
+.button:hover {
+/*	background:#000000;*/
+	background-position:0px -50px;
+}
+
+/* photo album code follows: */
+
+#album {
+	width:620px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#album ul {
+	list-style-type:none;
+}
+#album li {
+	float:left;
+	margin:5px;
+	position:relative;
+}
+#album li > a,
+#album li > a img {
+	display:block;
+}
+#album li > a {
+	width: 160px;
+	height: 94px;
+	position: relative;
+	padding: 10px;
+}
+#album li > a:hover {
+	opacity: 0.6;
+
+	-ie-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
+	-o-transition: opacity 0.3s linear;
+	-webkit-transition: opacity 0.3s linear;
+	transition: opacity 0.3s linear;
+}
+.overlay {
+	width: 0px;
+	height: 0px;
+	position: fixed;
+	overflow: hidden;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	z-index: 99;
+	text-align: center;
+	background:rgba(0,0,0,0);
+
+/*	-webkit-transition: background 0.3s ease-in-out;*/
+}
+.overlay a.close {
+	z-index: 1001;
+	position: absolute;
+	top: -18px;
+	right: -22px;
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+
+	color: #fff;
+	font-size: 30px;
+	opacity: 0;
+
+/*	-webkit-transition: opacity 0.3s linear 0.9s;*/
+}
+.overlay .slide {
+	max-height: 100%;
+	position: relative;
+	display:inline-block;
+}
+
+.overlay .frame {
+	box-shadow:0 2px 4px rgba(0,0,0,.2);
+
+	background:#000000;
+	padding:4px;
+	border:solid 4px #fff;
+	border-radius:16px;
+}
+
+.overlay .big {
+	margin:0px;
+	padding:0px;
+	vertical-align:middle;
+	opacity: 0;
+
+	-ie-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
+	-o-transition: opacity 0.3s linear;
+	-webkit-transition: opacity 0.3s linear;
+	transition: opacity 0.3s linear;
+}
+.overlay:target {
+	width: auto;
+	height: auto;
+	bottom: 0px;
+	right: 0px;
+	padding:80px;
+	background:rgba(0,0,0,0.7);
+}
+.overlay:target .slide,
+.overlay:target .big,
+.overlay:target a.close {
+  opacity: 1;
+}
+/*.overlay:target .slide {
+	-webkit-animation: fadeInScale 1.2s ease-in-out;
+	animation: fadeInScale 1.2s ease-in-out;
+}
+@-webkit-keyframes fadeInScale {
+  0% { -webkit-transform: scale(0.6); opacity: 0; }
+  100% { -webkit-transform: scale(1); opacity: 1; }
+}
+@keyframes fadeInScale {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+*/
+</style>
+
+</head>
+<body>
+	
+<div id="wrapper">
+
+<div id="header">
+<h1><a href="index.html" style="color:#28b0ff">One Busy Monkey</a></h1>
+<div>One monkey. One keyboard. Great apps.</div>
+</div>
+
+<div id="content">
+	
+<div id="description">
+<div id="description_title">
+<h2>Privacy Policy</h2>
+<div>Effective on 2013-07-22 (<em>updated</em>)</div>
+</div>
+</div>
+
+<div id="detail_spacer"></div>
+
+<div id="detail">
+<p>	This privacy statement describes how One Busy Monkey collects and uses the personal information you provide. It also describes the choices available to you regarding our use of your personal information and how you can access and update this information.</p>
+
+<h3>Location services</h3>
+
+<p>Some of our applications make use of location-based data. If you allow these services, they will collect information about the Wi-fi routers closest to you and the cell IDs of the towers closest to you.</p>
+
+<p>We use this information to provide the requested location-based service, not to identify you. You will be asked for your permission for the use of location-based services.</p>
+
+<h3>Collection and use</h3>
+
+<p>Some of our apps collect the following personal information from you:</p>
+<ul>
+	<li>Device identifying information</li>
+	<li>Usage activity about how you interact with our apps, such as screens visited, actions performed, and quantity of data.</li>
+</ul>
+
+<p>We use this information to:</p>
+<ul>
+	<li>Display content based upon your interests</li>
+	<li>Deliver targeted advertisements (ad-supported apps only)</li>
+	<li>Improve the quality of our apps</li>
+</ul>
+
+<p>The content of data that you create or enter is <strong>not collected</strong>.</p>
+
+<h3>Sharing your information</h3>
+
+<p>We will share your information with third parties only in the ways that are described in this privacy statement.</p>
+
+<p>We may share collected information anonymously with third party partners to provide services such as advertising, analytics, and in-app purchases. These third parties are authorized to use this information only as necessary to provide these services to us.</p>
+
+<p>We may disclose your personal information:</p>
+
+<ul>
+	<li>as required by law, such as to comply with a subpoena, or similar legal process.</li>
+	<li>when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request.</li>
+	<li>if One Busy Monkey is involved in a merger, acquisition, or sale of all or a portion of its assets, you will be notified via email and/or a prominent notice on our Web site of any change in ownership or uses of your personal information, as well as any choices you may have regarding your personal information.</li>
+	<li>to any other third party with your prior consent to do so.</li>
+</ul>
+
+<h3>Tracking and ads</h3>
+
+<p>We may partner with a third party ad network to either display advertising on our App or to manage our advertising on other sites. Our ad network partner uses technologies to collect non-personally identifiable information about your activities on this and other Apps to provide you targeted advertising based upon your interests.</p>
+
+<p>We may partner with a third party analytics service to report anonymous aggregate usage patterns and demographics for our application. This data will be used by One Busy Monkey to improve the quality of our apps.</p>
+
+<h3>Security</h3>
+
+<p>The security of your personal information is important to us. We follow generally accepted industry standards to protect the personal information submitted to us, both during transmission and once we receive it. No method of transmission over the Internet, or method of electronic storage, is 100% secure. Therefore, we cannot guarantee its absolute security.</p>
+
+<p>If you have any questions about security on our Web site, you can contact us at the e-mail address at the bottom of this page.</p>
+
+<p>The security of your personal information is important to us. When you provide sensitive information (such as a credit card number) to us, we encrypt the transmission of that information using secure socket layer technology (SSL).</p>
+
+<p>We follow generally accepted industry standards to protect the personal information submitted to us, both during transmission and once we receive it. No method of transmission, or method of electronic storage, is 100% secure. Therefore, we cannot guarantee its absolute security.</p>
+
+<p>If you have any questions about security on our Web site, you can contact us at the e-mail address at the bottom of this page.</p>
+
+<p>We will retain your information for as long as your account is active or as needed to provide you services. If you wish to cancel your account or request that we no longer use your information to provide you services contact us. We will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements.</p>
+
+<h3>Correcting and updating your personal information</h3>
+
+<p>To review and update your personal information to ensure it is accurate, contact us at the e-mail address at the bottom of this page.</p>
+
+<h3>Notification of Privacy Statement Changes</h3>
+
+<p>We may update this privacy statement to reflect changes to our information practices. If we make any material changes we will notify you by email (sent to the e-mail address specified in your account) or by means of a notice on this Site prior to the change becoming effective. We encourage you to periodically review this page for the latest information on our privacy practices.</p>
+	
+</div>
+
+</div> <!-- content -->
+
+<div id="spacer"></div>
+</div> <!-- wrapper -->
+
+<div id="footer">
+<div style="float:left">Copyright 2013 One Busy Monkey</div>
+<div style="float:right">
+<a href="#" id="s_email_contact"><span class="button"><span>Contact One Busy Monkey by e-mail</span></span></a><script type="text/javascript">var _sObsfuscatedHref0 = "mai";var _sObsfuscatedHref1 = "lto";var _sObsfuscatedHref2 = ":su";var _sObsfuscatedHref3 = "ppo";var _sObsfuscatedHref4 = "rt@";var _sObsfuscatedHref5 = "one";var _sObsfuscatedHref6 = "bus";var _sObsfuscatedHref7 = "ymo";var _sObsfuscatedHref8 = "nke";var _sObsfuscatedHref9 = "y.com";var _sObsfuscatedHref = _sObsfuscatedHref0+_sObsfuscatedHref1+_sObsfuscatedHref2+_sObsfuscatedHref3+_sObsfuscatedHref4+_sObsfuscatedHref5+_sObsfuscatedHref6+_sObsfuscatedHref7+_sObsfuscatedHref8+_sObsfuscatedHref9; document.getElementById('s_email_contact').href = _sObsfuscatedHref;</script>
+</div>
+</div>
+
+</body>
+</html>
